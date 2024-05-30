@@ -1,0 +1,18 @@
+Constructor:
+
+Accepts two parameters: query and queryStr.
+query represents the MongoDB query object that needs to be modified.
+queryStr represents the query parameters received from the client.
+
+
+Search Method (search()):
+
+This method is responsible for implementing the search functionality.
+It checks if a search keyword (queryStr.keyword) is provided in the query parameters.
+If a keyword is provided, it constructs a MongoDB query object to perform a case-insensitive search on a specific field (e.g., name).
+The constructed query object is merged with the existing query.
+
+When $options is set to "i", it indicates that the regular expression pattern should be applied in a case-insensitive manner.
+ This means that the pattern will match both uppercase and lowercase versions of letters.
+
+ Inside the find() method, { ...keyword } is an object containing the search criteria. The spread syntax (...) is used to spread the properties of the keyword object into a new object. This ensures that the properties of keyword are passed as separate key-value pairs to the find() method.
