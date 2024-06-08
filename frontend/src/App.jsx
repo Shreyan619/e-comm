@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router ,Route} from "react-router-dom"
-// import './App.css'
+import { BrowserRouter as Router ,Route, Routes} from "react-router-dom"
+import './App.css'
 import Header from './components/layout/Header/Header'
 import WebFont from "webfontloader"
 import { Footer } from './components/layout/Footer/Footer'
-import Home from './components/layout/Home/Home'
+import Home from './components/Home/Home'
+import Loader from './components/layout/Loader/Loader'
+import ProductDetails from './components/Product/ProductDetails'
 
 function App() {
 
@@ -20,7 +22,10 @@ function App() {
     <>
       <Router>
         <Header />
+        <Routes>
         <Route path='/' Component={Home}/>
+        <Route path='/product/:id' Component={ProductDetails}/>
+        </Routes>
         <Footer />
       </Router>
     </>
